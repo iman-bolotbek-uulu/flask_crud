@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Информация о менторе</h1>
+    <form class="text-center">
+        <ul class="list-group">
+          <li>Наименование курса - {{ mentor.name }}</li><br>
+          <li>Длительность курса - {{ mentor.birth_date }}</li><br>
+          <li>Ментор курса - {{ mentor.phone }}</li><br>
+            <li>Ментор курса - {{ mentor.speciality }}</li><br>
+            <li>Стаж ментора - {{ mentor.experience }}</li>
+        </ul>
+        <p><a class="btn btn-warning" href="{{ url_for('mentor_update',id=mentor.id) }}">Изменить</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-danger" href="{{ url_for('mentor_delete',id=mentor.id) }}">Удалить</a></p>
+    </form>
+</div>
+{% endblock content %}

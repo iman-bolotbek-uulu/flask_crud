@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Информация о студента</h1>
+    <form class="text-center">
+        <ul class="list-group">
+          <li class="list-group-item">ФИО студента - {{ student.name }}</li>
+          <li class="list-group-item">Дата рождение - {{ student.birth_date }}</li>
+          <li class="list-group-item">Номер телефона - {{ student.phone  }}</li>
+          <li class="list-group-item">Курсы - {{ student.course }}</li>
+        </ul>
+        <p><a class="btn btn-warning" href="{{ url_for('student_update',id=student.id) }}">Изменить</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-danger" href="{{ url_for('student_delete',id=student.id) }}">Удалить</a></p>
+    </form>
+</div>
+{% endblock content %}
+

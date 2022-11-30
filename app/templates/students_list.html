@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="btn-group" role="group">
+   <button style="width: 200px;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Добавление</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{{ url_for('student_create') }}">Добавить студента</a>
+      <a class="dropdown-item" href="{{ url_for('course_create') }}">Добавить курсы</a>
+      <a class="dropdown-item" href="{{ url_for('mentor_create') }}">Добавить ментора</a>
+    </div>
+  </div>
+<div class="container">
+  <h1 style="font-family: 'Rubik Glitch', cursive; font-size: 100px" class="text-center">Студенты</h1>
+<table  class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ФИО</th>
+        <th scope="col">Дата рождение</th>
+        <th scope="col">Номер телефона</th>
+          <th scope="col">Курс</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+      <tr>
+        <th scope="row">{{ student.id }}</th>
+        <td>{{ student.name }}</td>
+        <td>{{ student.birth_date }}</td>
+          <td>{{ student.phone }}</td>
+        <td>{{ student.course }}
+        <a style="text-decoration: underline;" class="btn btn-outline" href="{{ url_for('course_detail',id=student.course.id) }}">Подробнее о курсе</a>
+        </td>
+        <td><a style="text-decoration: underline;" class="btn btn-outline" href="{{ url_for('student_detail',id=student.id) }}">Подробнее о студенте</a></td>
+          {% endfor %}
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
+
+
+

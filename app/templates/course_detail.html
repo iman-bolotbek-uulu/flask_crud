@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Информация о курсе</h1>
+    <form class="text-center">
+        <ul class="list-group">
+          <li>Наименование курса - {{ course.name }}</li><br>
+          <li>Длительность курса - {{ course.duration }}</li><br>
+          <li><p>Ментор курса - {{ course.mentor }}</p><a style="text-decoration: underline;" class="btn btn-outline" href="{{ url_for('mentor_detail',id=course.mentor.id) }}">Подробнее о менторе</a></li>
+        </ul>
+        <p><a class="btn btn-warning" href="{{ url_for('course_update',id=course.id) }}">Изменить</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-danger" href="{{ url_for('course_delete',id=course.id) }}">Удалить</a></p>
+    </form>
+</div>
+{% endblock content %}

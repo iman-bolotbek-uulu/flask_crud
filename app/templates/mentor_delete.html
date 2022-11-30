@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<table border="1">
+    <thead>
+        <h1 class="text-center">Вы действительно хотите удалить ментора?</h1>
+    </thead>
+    <tbody>
+        <form method="POST">
+            <h3 class="text-center">ID = {{ mentor.id }}</h3>
+            <h3 class="text-center">ФИО = {{ mentor.name }}</h3>
+         <p class="text-center"><button type="submit" class="btn btn-danger" style="font-size:50px" >Удалить</button></p>
+        </form>
+    </tbody>
+</table>
+
+{% endblock content %}
